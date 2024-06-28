@@ -17,11 +17,13 @@ const Contacts = () => {
     setLoading(true);
 
     try {
-      const response = await axiosApi.get<ApiContacts>(`/contacts.json`);
+      const response = await axiosApi.get<ApiContacts | null>(`/contacts.json`);
 
       if(response.data) {
         setContact(response.data);
       }
+    } catch (e) {
+      console.error('Ошибка получение данных о контактах');
     } finally {
       setLoading(false);
     }

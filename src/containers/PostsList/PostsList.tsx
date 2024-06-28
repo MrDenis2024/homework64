@@ -24,6 +24,8 @@ const PostsList = () => {
       } else {
         setPosts([]);
       }
+    } catch (e) {
+      console.error('Ошибка получение данных о постах');
     } finally {
       setLoading(false);
     }
@@ -35,9 +37,9 @@ const PostsList = () => {
 
   let postsList = (
     <div className="mt-5">
-      {posts.map((post) => (
+      {posts.length > 0 ? <>{posts.map((post) => (
         <GetPost key={post.id} post={post}/>
-      ))}
+      ))}</> : <h3 className='text-center'>No posts, add a new post</h3>}
     </div>
   );
 

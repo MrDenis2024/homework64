@@ -25,6 +25,8 @@ const PostInfo = () => {
       } else {
         navigate('/');
       }
+    } catch (e) {
+      console.error('Ошибка получение информации о посте');
     } finally {
       setLoading(false);
     }
@@ -40,6 +42,8 @@ const PostInfo = () => {
   const deletePost = async () => {
     try {
       await axiosApi.delete(`/posts/${id}.json`);
+    } catch (e) {
+      console.error('Ошибка удаление поста');
     } finally {
       navigate('/');
     }

@@ -27,6 +27,8 @@ const InteractionForm = () => {
       } else {
         navigates('/');
       }
+    } catch (e) {
+      console.error('Ошибка получение данных о посте');
     } finally {
       setLoading(false);
     }
@@ -61,6 +63,8 @@ const InteractionForm = () => {
     if(id !== undefined) {
       try {
         await axiosApi.put(`/posts/${id}.json`, post);
+      } catch (e) {
+        console.error('Ошибка отпарвки данных об изменение');
       } finally {
         setLoading(false);
         navigates('/');
@@ -68,6 +72,8 @@ const InteractionForm = () => {
     } else {
       try {
         await axiosApi.post('/posts.json', posts);
+      } catch (e) {
+        console.error('Ошибка отпарвки данных о посте');
       } finally {
         setLoading(false);
         navigates('/');

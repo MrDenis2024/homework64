@@ -2,6 +2,7 @@ import {useCallback, useEffect, useState} from 'react';
 import axiosApi from '../../axiosApi';
 import {ApiUser} from '../../types';
 import Spinner from '../../components/Spinner/Spinner';
+import {Link} from 'react-router-dom';
 
 const About = () => {
   const [user, setUser] = useState<ApiUser>({
@@ -20,6 +21,8 @@ const About = () => {
       if(response.data) {
         setUser(response.data);
       }
+    } catch (e){
+      console.error('Ошибка получение данных о блогере');
     } finally {
       setLoading(false);
     }
@@ -28,6 +31,7 @@ const About = () => {
   useEffect(() => {
     void fetchUser();
   }, [fetchUser]);
+
 
   let about = (
     <div className='mt-5 border rounded p-3'>
@@ -42,6 +46,9 @@ const About = () => {
         <div className='col-4'>
           <img className='w-50 rounded-5' src={user.image} alt={user.name}/>
         </div>
+      </div>
+      <div className='text-center'>
+        <Link to='/about/edit' className='btn btn-danger'>About change</Link>
       </div>
     </div>
   );
