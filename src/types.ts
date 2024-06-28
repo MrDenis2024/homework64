@@ -19,3 +19,10 @@ export interface ApiUser {
   image: string;
   gender: string;
 }
+
+export interface ApiContacts {
+  phone: string;
+  email: string;
+  gmail: string;
+  address: string;
+}

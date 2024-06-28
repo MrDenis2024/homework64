@@ -16,7 +16,6 @@ const About = () => {
     setLoading(true);
     try {
       const response = await axiosApi.get<ApiUser | null>(`/user.json`);
-      console.log(response);
 
       if(response.data) {
         setUser(response.data);
