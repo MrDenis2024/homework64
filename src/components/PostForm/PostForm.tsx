@@ -2,15 +2,16 @@ import React from 'react';
 import {ApiPost} from '../../types';
 
 interface Props {
+  id?: string;
   post: ApiPost;
   onFieldChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
   onFormSubmit: React.ChangeEventHandler<HTMLFormElement>;
 }
 
-const PostForm: React.FC<Props> = ({post, onFieldChange, onFormSubmit}) => {
+const PostForm: React.FC<Props> = ({id, post, onFieldChange, onFormSubmit}) => {
   return (
     <div className="mt-4 border border-black rounded p-5">
-      <h2>Add new post</h2>
+      {id ? <h2>Change Post</h2> : <h2>Add new post</h2>}
       <form className="mt-4" onSubmit={onFormSubmit}>
         <div className="form-group">
           <label htmlFor="title">Title</label>
