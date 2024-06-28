@@ -2,7 +2,7 @@ import React from 'react';
 import {ApiPost} from '../../types';
 
 interface Props {
-  id?: string;
+  id: string | undefined;
   post: ApiPost;
   onFieldChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
   onFormSubmit: React.ChangeEventHandler<HTMLFormElement>;
