@@ -14,7 +14,7 @@ const PostsList = () => {
       const postsResponse = response.data;
 
       if(postsResponse !== null) {
-        const posts: Post[] = Object.keys(postsResponse).map((id: string) => {
+        const posts: Post[] = Object.keys(postsResponse).reverse().map((id: string) => {
           return {
             ...postsResponse[id],
             id,
