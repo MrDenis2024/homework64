@@ -3,3 +3,11 @@ export interface ApiPost {
   description: string;
   date: string;
 }
+
+export interface ApiPosts {
+  [id: string]: ApiPost;
+}
+
+export interface Post extends ApiPost {
+  id: string;
+}
