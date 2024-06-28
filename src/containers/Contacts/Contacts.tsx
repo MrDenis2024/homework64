@@ -1,10 +1,11 @@
 import {useCallback, useEffect, useState} from 'react';
-import {ApiContacts} from '../../types';
+import {ApiContacts, MutationContacts} from '../../types';
 import axiosApi from '../../axiosApi';
 import Spinner from '../../components/Spinner/Spinner';
+import {Link} from 'react-router-dom';
 
 const Contacts = () => {
-  const [contact, setContact] = useState<ApiContacts>({
+  const [contact, setContact] = useState<MutationContacts>({
     phone: '',
     email: '',
     gmail: '',
@@ -20,7 +21,10 @@ const Contacts = () => {
       const response = await axiosApi.get<ApiContacts | null>(`/contacts.json`);
 
       if(response.data) {
-        setContact(response.data);
+        setContact({
+          ...response.data,
+          phone: response.data.phone.toString(),
+        });
       }
     } catch (e) {
       console.error('Ошибка получение данных о контактах');
@@ -71,6 +75,9 @@ const Contacts = () => {
         </svg>
         <a className='ms-4 link-underline-light link-dark' href={phoneLink}>+{contact.phone}</a>
       </p>
+      <div>
+        <Link to='/contacts/edit' className='btn btn-danger'>Change contact</Link>
+      </div>
     </div>
   );
 

@@ -7,6 +7,7 @@ import InteractionForm from './containers/InteractionForm/InteractionForm';
 import About from './containers/About/About';
 import Contacts from './containers/Contacts/Contacts';
 import ChangeAbout from './containers/ChangeAbout/ChangeAbout';
+import ChangeContact from './containers/ChangeContact/ChangeContact';
 
 const App = () => (
   <>
@@ -22,6 +23,7 @@ const App = () => (
         <Route path='/about' element={<About />} />
         <Route path='/about/edit' element={<ChangeAbout />} />
         <Route path='/contacts' element={<Contacts />} />
+        <Route path='/contacts/edit' element={<ChangeContact />} />
         <Route path='*' element={<div className="text-center mt-5"><strong>Данной страницы не найдено вернитесь
           пожалуйста обратно!</strong></div>} />
       </Routes>

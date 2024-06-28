@@ -20,8 +20,15 @@ export interface ApiUser {
   gender: string;
 }
 
-export interface ApiContacts {
+export interface MutationContacts {
   phone: string;
+  email: string;
+  gmail: string;
+  address: string;
+}
+
+export interface ApiContacts {
+  phone: number;
   email: string;
   gmail: string;
   address: string;
